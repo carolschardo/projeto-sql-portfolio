@@ -1,28 +1,70 @@
-# 📊 Projeto SQL - Sistema de Vendas
+# 📊 Projeto SQL para Portfólio
 
-Este é um projeto de estudo em SQL que simula um sistema simples de vendas. A estrutura foi criada com tabelas para clientes, produtos, pedidos e itens do pedido, permitindo consultas úteis para o dia a dia de um analista ou desenvolvedor iniciante.
+Este projeto foi criado com o objetivo de demonstrar meus conhecimentos em SQL de forma prática, organizada e didática. Ele simula um pequeno sistema de pedidos com tabelas de clientes, produtos, pedidos e itens de pedido.
 
-O objetivo é consolidar os conhecimentos em banco de dados relacionais, normalização e consultas com JOINs, utilizando um cenário próximo da realidade empresarial.
+---
 
-## 🧱 Estrutura das Tabelas
+## 📁 Estrutura do Banco de Dados
 
-- **clientes**: contém dados de nome, e-mail e localização dos clientes.
-- **produtos**: lista dos produtos disponíveis com preço e estoque.
-- **pedidos**: registros de pedidos realizados, vinculados a clientes.
-- **itens_pedido**: detalha os itens incluídos em cada pedido, com quantidade e preço unitário.
+- `clientes`
+- `produtos`
+- `pedidos`
+- `itens_pedido`
+
+As tabelas estão interligadas por meio de chaves estrangeiras e seguem boas práticas de modelagem de dados.
+
+---
 
 ## 🧪 Consultas SQL (com explicações)
 
-| Nº | Descrição | Query |
-|----|-----------|-------|
-| 1  | Lista todos os clientes cadastrados | `SELECT * FROM clientes;` |
-| 2  | Mostra nome, preço e estoque dos produtos | `SELECT nome, preco, estoque FROM produtos;` |
-| 3  | Mostra todos os pedidos com o nome do cliente e a data do pedido | `SELECT pedidos.id AS pedido_id, clientes.nome AS cliente, pedidos.data_pedido FROM pedidos JOIN clientes ON pedidos.cliente_id = clientes.id;` |
-| 4  | Detalha os pedidos com nome do cliente, produto, quantidade, valor unitário e total do item | `SELECT pedidos.id AS pedido_id, clientes.nome AS cliente, produtos.nome AS produto, itens_pedido.quantidade, itens_pedido.preco_unitario, (itens_pedido.quantidade * itens_pedido.preco_unitario) AS total_item FROM pedidos JOIN clientes ON pedidos.cliente_id = clientes.id JOIN itens_pedido ON pedidos.id = itens_pedido.pedido_id JOIN produtos ON itens_pedido.produto_id = produtos.id;` |
+| Consulta | Descrição                                                                 |
+|----------|---------------------------------------------------------------------------|
+| `SELECT * FROM clientes;` | Retorna todos os dados da tabela `clientes`. |
+| `SELECT nome, preco, estoque FROM produtos;` | Mostra nome, preço e estoque de cada produto. |
+| `JOIN clientes e pedidos` | Junta os dados dos clientes com seus pedidos. |
+| `JOIN completo com itens_pedido e produtos` | Mostra cada item pedido com quantidade, valor unitário e valor total. |
 
-## 💡 Sobre o projeto
+📎 Todas as queries estão no arquivo `consultas.sql` com comentários explicativos.
 
-Este projeto faz parte do meu aprendizado contínuo em SQL. Foi desenvolvido com base em estudos guiados e orientação técnica, para reforçar a prática e construir um portfólio profissional sólido.
+---
+
+## 📄 Arquivos disponíveis
+
+| Arquivo                      | Descrição                                                                 |
+|-----------------------------|---------------------------------------------------------------------------|
+| `consultas.sql`             | Consultas SQL básicas com `SELECT` e `JOIN`                               |
+| `consultas-intermediarias.sql` | Consultas com filtros (`WHERE`, `LIKE`, `ORDER BY`, `GROUP BY`, `HAVING`) |
+| `dados-insercao.sql`        | Comandos `INSERT` com dados fictícios usados nas consultas                |
+| `guia-consultas-sql.md`     | Guia de aprendizado com colinhas explicando comandos SQL comuns           |
+| `README.md`                 | Descrição geral do projeto                                                |
+
+---
+
+## 🧠 Objetivos
+
+- Criar um banco de dados relacional com tabelas bem definidas.
+- Inserir dados fictícios para simular uma operação real.
+- Executar consultas SQL do nível básico ao intermediário.
+- Praticar comandos SQL como `JOIN`, `GROUP BY`, `ORDER BY`, `WHERE`, entre outros.
+- Documentar o aprendizado com uma colinha para consulta rápida.
+
+---
+
+## 🛠️ Ferramentas utilizadas
+
+- 💻 [DB Fiddle](https://www.db-fiddle.com/) — para testar as queries
+- 📝 Visual Studio Code — para edição local e integração com o GitHub
+- 🔗 Git e GitHub — para versionamento e publicação do projeto
+
+---
+
+## 🔮 Próximos passos
+
+- Adicionar mais consultas intermediárias e avançadas
+- Criar um mini desafio prático baseado nos dados existentes
+- Inserir scripts com `UPDATE`, `DELETE`, `CASE`, subqueries e funções de agregação
+
+---
 
 ## 📬 Contato
 
@@ -30,3 +72,8 @@ Se quiser trocar ideias, fique à vontade pra me chamar!
 
 **Caroline Almeida Schardosim**  
 🔗 [LinkedIn](https://www.linkedin.com/in/carolineschardosim)
+
+---
+
+> Projeto em constante evolução. Cada parte aqui representa um passo no meu aprendizado.
+
